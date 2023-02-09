@@ -5,9 +5,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void printList(forward_list<int> fl)
+void showList(forward_list<int> l)
 {
-    for (auto i : fl)
+    for (auto i : l)
     {
         cout << i << " ";
     }
@@ -16,57 +16,50 @@ void printList(forward_list<int> fl)
 
 int solve()
 {
-    forward_list<int> fl;
-    fl.push_front(1);
-    fl.push_front(2);
-    fl.push_front(3);
+    forward_list<int> l;
+    // assign operation
+    // l.assign({1});
+    // showList(l);
+    l.assign({1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
+    // showList(l);
+    // forward_list<int> l2;
+    // l2.assign({1,2,3,4,5,6,7,8,9,10});
+    // l.assign(l2.begin(),l2.end());
+    // showList(l);
+    // l.assign(10,5);
+    // showList(l);
 
-    
-    // // printList(fl);
-    // // fl.pop_front();
-    // // printList(fl);
+    // push_front operation
+    l.push_front(0);
+    // pop front operation
+    l.pop_front();
 
-    // // cout<<*fl.begin()<<endl;
+    // insert_after operation
+    auto it = l.begin();
+    it++;
+    l.insert_after(it, 5);
+    l.insert_after(it, {6, 7, 8, 9, 10});
 
-    // fl.push_front(4);
-    // fl.push_front(5);
-    // printList(fl);
+    // erase_after operation
+    it++;
+    l.erase_after(it);
 
-    // fl.insert_after(fl.begin(), 6);
+    // remove operation
+    // l.remove(5);
 
-    // printList(fl);
+    // remove_if operation
+    l.remove_if([](int x)
+                { return x % 2 == 0; });
 
-    // auto it = fl.begin();
-    // it++;
-    // fl.insert_after(it, 3, 7);
-    // printList(fl);
 
-    // // fl.clear();
-    // // printList(fl);
+    // splice_after operation
+    forward_list<int> l2;
+    l2.assign({1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
+    it = l.begin();
+    it++;
+    l.splice_after(it, l2);
 
-    // fl.remove(7);
-    // printList(fl);
-
-    // fl.remove_if([](int x)
-    //              { return x % 2 == 1; });
-    // printList(fl);
-
-    // fl.assign({1, 2, 3, 4, 5});
-    // printList(fl);
-
-    // fl.splice_after(fl.begin(), {6, 7, 8, 9});
-    // printList(fl);
-
-    array<int, 5> arr = {1, 2, 3, 4, 5};
-    forward_list<array<int,5>> fl1;
-    fl1.push_front({2,3,4,5,6});
-    fl1.push_front(arr);
-    for(auto i:fl1){
-        for(int x=0;x<i.size();x++){
-            cout<<i[x]<<" ";
-        }
-        cout<<endl;
-    }
+    showList(l);
 
     return 0;
 }

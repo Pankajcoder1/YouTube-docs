@@ -5,36 +5,41 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void printList(list<int> l)
-{
-    for (auto i : l)
-    {
-        cout << i << " ";
+
+void showList(list<vector<int>> l){
+    for(auto i:l){
+        for(auto j:i){
+            cout<<j<<" ";
+        }
+        cout<<endl;
     }
-    cout << endl;
+    cout<<endl;
 }
 
 int solve(){
-    list<int> l;
-    // l.assign({1,2,3,4,5});
-    // for(auto it=rbegin(l);it!=rend(l);it++){
-    //     cout<<*it<<" ";
-    // }
-    // cout<<endl;
+    // list<int> l1,l2;
 
-    l.push_front(6);
-    l.push_back(7);
-    l.push_front(8);
-    l.push_back(9);
-    printList(l);
+    // l2.push_front(1);
+    // l2.push_front(2);
+    // showList(l2);
 
-    forward_list<list<int>> fl;
-    fl.push_front(l);
-    for(auto x:fl){
-        printList(x);
-    }
+    // l1.push_back(1);
+    // l1.push_back(2);
+    // cout<<"back element is "<<l1.back()<<endl;
+
+    // showList(l1);
+
+
+    vector<int> v={1,2,3,4,5,6,7,8,9,10};
+    list<vector<int>> l3;
+    l3.push_back(v);
+    showList(l3);
+
+    vector<int> v2;
+    vector<list<array<int,3>>> l4;
     return 0;
 }
+
 int main()
 {
     int testCase=1;
